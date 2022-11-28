@@ -1,18 +1,16 @@
 <script>
 	import "../app.css";
-	import Nav from "$lib/nav.svelte";
+	import Nav from "$lib/navbar/nav.svelte";
 	import Hero from "$lib/hero.svelte";
-	import Social from "$lib/social.svelte";
+	import Social from "$lib/social-components/social.svelte";
 </script>
 
 <Nav />
-<Hero />
-<main class="flex flex-column justify-center mx-auto w-3xl">
-	<div class="mx-5">
+<main class="flex flex-col justify-center pb-5 w-lg bg-white mx-auto shadow-md">
+		<Hero />
 		<slot />
-	</div>
+		<Social />
 </main>
-<Social />
-<footer class="text-center">
+<footer class="text-center bg-rose-700 w-lg mx-auto text-white">
 	<p>Copyright 2022 Achieve Goal</p>
 </footer>
