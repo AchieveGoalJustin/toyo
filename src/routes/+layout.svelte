@@ -11,6 +11,6 @@
 		<slot />
 		<Social />
 </main>
-<footer class="text-center bg-rose-700 w-lg mx-auto text-white">
+<footer class="text-center bg-slate-700 w-lg mx-auto text-white">
 	<p>Copyright 2022 Achieve Goal</p>
 </footer>

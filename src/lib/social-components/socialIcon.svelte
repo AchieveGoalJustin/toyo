@@ -1,10 +1,21 @@
 <script>
-	export let path = "";
-	export let target = "";
-	export let ariaText = "";
+	import {fly} from 'svelte/transition'
+
+	export let path;
+	export let target;
+	export let ariaText;
+	export let text
+
+	let isHovered = false;
 </script>
 
-<a rel="noreferrer" href={target} target="_blank">
+<a 
+	on:mouseenter={()=>{isHovered=true;}}
+	on:mouseleave={()=>{isHovered=false;}} 
+	rel="noreferrer" 
+	href={target} 
+	target="_blank"
+	class="relative">
 	<img
 		src={path}
 		alt={ariaText}
@@ -18,4 +29,10 @@
 			duration-200
 		"
 	/>
+	{#if isHovered}
+	<p
+		in:fly="{{duration:750, y:20}}" 
+		class="whitespace-nowrap absolute -bottom-6 text-white text-lg font-black rounded-full bg-sky-700 p-2 mx-auto text-center"
+		style="min-width:100%">{text}</p>
+	{/if}
 </a>
