@@ -1,16 +1,20 @@
 <script>
 	import "../app.css";
 	import Nav from "$lib/navbar/nav.svelte";
-	import Hero from "$lib/hero.svelte";
 	import Social from "$lib/social-components/social.svelte";
 </script>
 
+
 <Nav />
-<main class="flex flex-col justify-center pb-5 w-lg bg-white mx-auto shadow-md">
-		<Hero />
+<main class="flex flex-col justify-center pb-5 w-2xl bg-white mx-auto shadow-md">
 		<slot />
 		<Social />
 </main>
-<footer class="text-center bg-slate-700 w-lg mx-auto text-white">
-	<p>Copyright 2022 Achieve Goal</p>
+<footer class="w-full flex flex-col justify-center content-center">
+	<div class="h-[300px] bg-rose-700">
+
+	</div>
+	<div class="bg-slate-700 text-white w-full">
+		<p class="mx-auto w-fit py-2">Copyright 2022 Achieve Goal</p>
+	</div>
 </footer>

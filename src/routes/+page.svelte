@@ -1,4 +1,5 @@
 <script>
+	import Hero from "$lib/hero.svelte"
 	import Title from "$lib/highlightTitle.svelte";
 	import Content from "$lib/contentBox.svelte";
 	import Cards from "$lib/cards/threeCardContainer.svelte";
@@ -13,6 +14,7 @@
 
 </script>
 
+<Hero/>
 <div class="flex flex-col my-10 max-w-3xl mx-auto">
 	<SectionWrapper>
 		<Title slot="title" highlight="東洋Achieve English" posttext="とは"/>

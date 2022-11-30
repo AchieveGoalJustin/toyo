@@ -2,7 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-.container > * {
-	margin-top: 10px;
-	margin-bottom: 10px;
+.heading-outline-white {
+  -webkit-text-stroke: 1px #fff;
+}
+
+.heading-outline-red {
+  -webkit-text-stroke: 3px #be123c;
+}
+
+.width-auto {
+  width: auto;
+}
+
+.bg-logo {
+  background-image: url("/TAELogo.svg");
 }
