@@ -1,4 +1,5 @@
 <script>
+	import Test from "$lib/transitions/test.svelte"
 </script>
 
 <div>
@@ -6,4 +7,5 @@
 	<p>
 		Here is some information about us. Here is some information about us.Here is some information about us.Here is some information about us.Here is some information about us.Here is some information about us.Here is some information about us.Here is some information about us.Here is some information about us.Here is some information about us.Here is some information about us.Here is some information about us.Here is some information about us.Here is some information about us.
 	</p>
+	<Test />
 </div>
