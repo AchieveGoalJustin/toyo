@@ -1,8 +1,9 @@
 <script>
 	import {onMount} from 'svelte'
 	import {page} from '$app/stores'
-	import Link from "$lib/navbar/nav-button.svelte"
 	import {buildTween} from "$lib/tweens/buildTween.js"
+	import Link from "$lib/navbar/nav-button.svelte"
+	import Mail from "$lib/navbar/sliding-icon-nav.svelte"
 
 
 	let tweenHeights = [64 , 80]
@@ -19,13 +20,8 @@
 		index = 0
 	}
 
-	$: barShift.set(tweenColors[index])
+	$: barShift?.set(tweenColors[index])
 	$: yShift.set(tweenHeights[index])
-
-	onMount(()=>{
-		$barShift.set(tweenColors[0])
-		$yShift.set(tweenHeights[0])
-	})
 
 </script>
 
@@ -47,13 +43,16 @@
 >
 	<div class="flex flex-col w-full mx-auto content-center justify-center place-content-center">
 		<div class ="flex flex-row h-full">
-			<div>logo</div>
+			<div class ="h-full flex flex-row justify-center content-center"><img class="h-full bg-white" src="/TAENavLogo.svg"><h3 class="text-xl font-bold ml-3 my-auto">英語講座</h3></div>
+
 			<div class ="flex flex-row mx-auto">
 				<Link index={index} page={page} english="Home" japanese="ホーム" location="/"/>
 				<Link index={index} page={page} english="About TAE" japanese="キャンパス内留学とは？" location="/about"/>
-				<Link index={index} page={page} english="Q&A" japanese="よくある質問" location ="/faq" />
+				<Link index={index} page={page} english="Q&A" japanese="よくある質問" location ="" />
 			</div>
-			<div>contact</div>
+			<div>
+				<Mail />
+			</div>
 		</div>
 	</div>
 </nav>

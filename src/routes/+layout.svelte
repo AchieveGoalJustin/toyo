@@ -7,7 +7,7 @@
 
 <Nav />
 <main class="flex flex-col justify-center pb-5 w-2xl bg-white mx-auto shadow-md">
-		<slot />
+			<slot/>
 		<Social />
 </main>
 <footer class="w-full flex flex-col justify-center content-center">

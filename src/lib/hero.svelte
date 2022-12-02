@@ -48,7 +48,8 @@
                 {/if}
             </div>
 
-            <p class="rounded-md text-slate-700 text-2xl inline-block mx-auto mb-10 w-1/2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem explicabo itaque beatae laborum magnam aut! Accusamus explicabo possimus error, nobis vitae natus, mollitia ullam autem voluptate ratione quaerat quo perferendis.</p>
+            <p class="rounded-md text-slate-700 text-2xl inline-block mx-auto mb-10 w-2/3">
+“English Only Policy”の環境だからこそできるスピーキング・リスニングに焦点を当てたレッスン内容になっています。英会話スクールに行く時間が確保できなくてもキャンパス内留学だからこそ空いている時間でレッスンに取り組むことができ、大学の授業や部活、バイトなどとも両立することができます！</p>
             <CTA text="今すぐ受講"/>
             <button on:click={cycler}>Index</button>
         </div>
