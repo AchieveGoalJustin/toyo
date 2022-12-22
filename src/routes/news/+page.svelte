@@ -2,23 +2,35 @@
 
     import type {PageServerData} from "./$types"
 
-    export let data: PageServerData
+    import Article from '$lib/news/Article.svelte'
 
-    $: console.log(data)
+    export let data: [{
+        content: String,
+        title: String,
+        author: {
+            name: String
+        },
+        createdAt: Date
+    }]
+
+    function serializeObject(data: {}){
+        let indices = Object.keys(data)
+        let returnArray = []
+
+        for (let i=0; i < indices.length; i++){
+            returnArray.push(data[indices[i]])
+        }
+
+        console.log(returnArray)
+        return returnArray
+    }
+
+    $:serialized = serializeObject(data)
+
 </script>
 
 <div class="my-10 w-2/3 mx-auto">
-    {#if data}
-    <h2 class="text-3xl font-bold text-rose-800">{data.title}</h2>
-    <hr>
-    
-    <div class="my-10">
-        {@html data.content}
-    </div>
-    
-    <div>
-        <span>{data.createdAt.toLocaleDateString("ja-JP")}</span>
-        <p class="italic text-sky-400">{data.author.name}</p>
-    </div>
-    {/if}
+    {#each serialized as article}
+        <Article data={article}/>
+    {/each}
 </div>

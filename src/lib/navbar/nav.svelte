@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import {onMount} from 'svelte'
 	import {page} from '$app/stores'
 	import {buildTween} from "$lib/tweens/buildTween.js"
@@ -20,7 +20,7 @@
 		index = 0
 	}
 
-	$: barShift?.set(tweenColors[index])
+	$: barShift.set(tweenColors[index])
 	$: yShift.set(tweenHeights[index])
 
 </script>

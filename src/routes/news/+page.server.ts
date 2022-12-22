@@ -5,8 +5,20 @@ let prisma = new PrismaClient;
 
 export const load: PageServerLoad = async () => {
 
-    const dummyArticle = await prisma.article.findUnique({where: {title: "Testme"}, include: {author:true}})
+    const articleData = await prisma.article.findMany({include: {author: true}})
 
-    return dummyArticle
+    function serializeObject(data: {}){
+        let indices = Object.keys(data)
+        let returnArray = []
+
+        for (let i=0; i < indices.length; i++){
+            returnArray.push(data[indices[i]])
+        }
+
+        console.log(returnArray)
+        return returnArray
+    }
+
+    return articleData;
 
 }

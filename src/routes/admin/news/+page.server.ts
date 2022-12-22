@@ -14,22 +14,24 @@ const post: Action = async({request}) => {
 
     console.log("Doing stuff")
 
-    const pageData = await request.formData() 
+    const pageData = await request.formData()
+    console.log(pageData)
     const title = pageData.get('title');
-    const tag = pageData.get('tag');
+    const tags = pageData.get('tags');
     const content = pageData.get('content')
     const showCreated = true
     const showUpdated = true
     const visible = true
 
-    if(!title || !tag || !content){
+    if(!title || !tags || !content){
         console.log("oops")
+        console.log(Boolean(title), Boolean(tag), Boolean(content))
         return invalid(400, {incomplete:true})
     }
 
     let data ={
             title,
-            tags: tag,
+            tags,
             content,
             visible,
             showCreated,

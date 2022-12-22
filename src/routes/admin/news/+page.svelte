@@ -1,40 +1,53 @@
 <script lang="ts">
     import TipTap from '$lib/news/TipTap.svelte'
     import type {ActionData} from './$types'
+    import type {TagArray} from '$lib/news/TagDefs'
+    import {fly} from 'svelte/transition'
+
+    import TagBox from '$lib/news/TagBox.svelte'
+    import {newsTags} from '$lib/news/TagDefs'
+    import {campusTags} from '$lib/news/TagDefs'
 
     export let form: ActionData;
 
+
+    let collated: TagArray;
     let content: string = '';
+    let collate: boolean = true; 
+
+    $:if(collate){
+        collated = [...campusTags, ...newsTags]
+        collate = false;
+    };
+
+    $:console.log(collated)
+
 </script>
 
-<div class="w-1/2 my-10 mx-auto border-2 border-slate-500 rounded-sm">
+<div class="w-2/3 my-10 mx-auto">
     <form action="?/post" method="POST">
-    <div class="flex flex-row w-[100%] space-around">
-            <div>
-                <label class="w-full"for="title">
-                    Post Title
-                </label>
-                <input class="w-full" type="text" name="title"/>
+        <div class="border-2 border-slate-500 rounded-sm">
+        <div class="flex flex-row w-[100%] place-content-around p-3">
+                <div>
+                    <label class="w-full"for="title">
+                        Post Title
+                    </label>
+                    <input class="w-full" type="text" name="title"/>
+                </div>
             </div>
-            <div>
-                <label for="tag">
-                    Tag
-                </label>
-                <select name="tag">
-                    <option>お申込みについて</option>
-                    <option>その他</option>
-                    <option>イベントのお知らせ</option>
-                    <option>授業について</option>
-                    <option>次学期の募集について</option>
-                </select>
-            </div>
-            <input type="text" name="content" style="display:none;" value={content}/>
+            <TagBox checkText={"タグを追加"} tags={newsTags} bind:collate={collate}/>
+            <TagBox checkText={"キャンパスを追加"} tags={campusTags} bind:collate={collate}/>
+            <TipTap bind:content={content}/>
         </div>
-        <TipTap bind:content={content}/>
-        <button type="submit" class="p-2 border-slate-600 border-2 w-[250px] hover:bg-black hover:text-white rounded-sm mx-auto font-weight-bold" >Submit</button>
+        <div class="w-full flex flex-row mt-5">
+            <button type="submit" class=" font-bold p-2 border-slate-600 border-2 w-[250px] hover:bg-black hover:text-white rounded-sm mx-auto font-weight-bold transition ease-in-out duration-300" >決定</button>
+            <button on:click={e => e.preventDefault()} class="font-bold p-2 border-slate-600 border-2 w-[250px] hover:bg-black hover:text-white rounded-sm mx-auto font-weight-bold transition ease-in-out duration-300">確認 ></button>
+        </div>
+        <input type="text" name="content" style="display:none;" value={content}/>
+        <input type="text" name="tags" style="display:none;" value={collated}/>
     </form>
 </div>
 
 {#if form?.incomplete}
-    <p>Something went wrong bruh</p>
+    <p class="text-red-700">Something went wrong bruh</p>
 {/if}

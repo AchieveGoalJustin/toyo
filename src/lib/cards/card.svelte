@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
     export let imgPath = ""
-    export let heading
+    export let heading: string
 </script>
 
 <div class = "max-h-96 w-cardsmall shadow-lg my-4 mx-2 rounded transition ease-in hover:scale-105">

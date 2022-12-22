@@ -1,10 +1,10 @@
-<script>
+<script lang="ts">
 	import {fly} from 'svelte/transition'
 
-	export let path;
-	export let target;
-	export let ariaText;
-	export let text
+	export let path: string;
+	export let target: string;
+	export let ariaText: string;
+	export let text: string;
 
 	let isHovered = false;
 </script>
