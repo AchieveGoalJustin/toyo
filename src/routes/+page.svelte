@@ -8,10 +8,6 @@
 	import MediaWrapper from "$lib/wrappers/media-wrapper.svelte"
 	import SectionWrapper from "$lib/wrappers/section-wrapper.svelte"
 
-	let baseBlue = "#1d4ed8"
-	let baseRed = "#be123c"
-
-
 </script>
 
 <Hero/>

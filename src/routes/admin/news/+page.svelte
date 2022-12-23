@@ -11,12 +11,12 @@
     export let form: ActionData;
 
 
-    let collated: TagArray;
+    let collated: string;
     let content: string = '';
     let collate: boolean = true; 
 
     $:if(collate){
-        collated = [...campusTags, ...newsTags]
+        collated = JSON.stringify([...campusTags, ...newsTags])
         collate = false;
     };
 

@@ -39,7 +39,9 @@
 		sticky 
 		top-0 
 		z-10 
-		opacity-95"
+		opacity-95
+		{scrolled ? "shadow-md" : "" }
+		"
 >
 	<div class="flex flex-col w-full mx-auto content-center justify-center place-content-center">
 		<div class ="flex flex-row h-full">
@@ -49,6 +51,7 @@
 				<Link index={index} page={page} english="Home" japanese="ホーム" location="/"/>
 				<Link index={index} page={page} english="About TAE" japanese="キャンパス内留学とは？" location="/about"/>
 				<Link index={index} page={page} english="Q&A" japanese="よくある質問" location ="" />
+				<Link index={index} page={page} english="News" japanese="新着情報" location="/news"/>
 			</div>
 			<div>
 				<Mail />

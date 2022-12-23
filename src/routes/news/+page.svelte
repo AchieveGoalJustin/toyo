@@ -1,36 +1,41 @@
 <script lang="ts">
-
+    import {onMount} from 'svelte'
     import type {PageServerData} from "./$types"
 
     import Article from '$lib/news/Article.svelte'
 
-    export let data: [{
-        content: String,
-        title: String,
-        author: {
-            name: String
-        },
-        createdAt: Date
-    }]
+    export let data: PageServerData
+    let serialized;
 
-    function serializeObject(data: {}){
-        let indices = Object.keys(data)
+    function parseTags(serializedArray){
+
+        for(let i = 0; i < serializedArray.length; i++){
+            serializedArray[i].tags = JSON.parse(serializedArray[i].tags)
+        }
+    }
+
+    function serializeObject(data: PageServerData){
+        let indices: string[] = Object.keys(data)
         let returnArray = []
 
         for (let i=0; i < indices.length; i++){
             returnArray.push(data[indices[i]])
         }
 
-        console.log(returnArray)
+        parseTags(returnArray)
+
         return returnArray
     }
 
-    $:serialized = serializeObject(data)
-
+    $:if(!serialized){
+        serialized = serializeObject(data)
+    }
 </script>
 
 <div class="my-10 w-2/3 mx-auto">
-    {#each serialized as article}
-        <Article data={article}/>
-    {/each}
+    {#if serialized}
+        {#each serialized as article}
+            <Article data={article}/>
+        {/each}
+    {/if}
 </div>

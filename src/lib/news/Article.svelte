@@ -16,14 +16,14 @@
 <article class="mb-12">
     {#if data}
         <h2 class="text-3xl font-bold text-rose-800">{data.title}</h2>
-        <div class="flex flex-row">
+        <hr>
+        <div class="flex flex-row flex-wrap">
             {#each data.tags as tag}
                 {#if tag.isSelected}
-                    <div>{tag.text}</div>
+                    <div class={`mr-2 ${tag.color} font-bold text-white px-2 py-1 rounded-full my-2`}>{tag.text}</div>
                 {/if}
             {/each}
         </div>
-        <hr>
         
         <div class="my-10">
             {@html data.content}
