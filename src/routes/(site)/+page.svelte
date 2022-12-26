@@ -7,11 +7,12 @@
 	import RedCTA from "$lib/buttons/redCtaButton.svelte"
 	import MediaWrapper from "$lib/wrappers/media-wrapper.svelte"
 	import SectionWrapper from "$lib/wrappers/section-wrapper.svelte"
+	import ApplicationProcess from "$lib/homepage/ApplicationProcess.svelte"
 
 </script>
 
 <Hero/>
-<div class="flex flex-col my-10 max-w-3xl mx-auto">
+<div class="flex flex-col my-10 max-w-[1000px] mx-auto">
 	<SectionWrapper>
 		<Title slot="title" highlight="東洋Achieve English" posttext="とは"/>
 		<div class ="mb-24">
@@ -30,7 +31,7 @@
 				Lorem ipsum dolor sit amet <span class="text-4xl font-bold text-rose-700">consectetur adipisicing</span> elit. Ipsum, quod. Non modi beatae laborum nostrum cum enim veritatis incidunt est.
 			</p>
 		</div>
-		<div class="flex flex-row place-content-around mt-5 mb-24">
+		<div class="flex flex-row justify-around align-items-center mt-5 mb-24">
 			<BlueCTA text="詳細はこちら" />
 			<RedCTA text="今すぐお問い合わせ"/>
 		</div>
@@ -39,15 +40,11 @@
 			</iframe>
 		</MediaWrapper>
 	</SectionWrapper>
-	<Cards/>
-	<Title pretext="これは" highlight="見出し" posttext="のへーディング。" />
-	<Content />
-	<Title pretext="これは" highlight="見出し" posttext="のへーディング。" />
-	<Content />
-	<Title pretext="これは" highlight="見出し" posttext="のへーディング。" />
-	<Content />
-	<Title pretext="これは" highlight="見出し" posttext="のへーディング。" />
-	<Content />
-	<Title pretext="これは" highlight="見出し" posttext="のへーディング。" />
-	<Content />
+	<SectionWrapper>
+		<Cards/>
+	</SectionWrapper>
+	<SectionWrapper>
+		<Title pretext="もうしこみの" highlight="流れ" posttext="" />
+		<ApplicationProcess />
+	</SectionWrapper>
 </div>

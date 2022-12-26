@@ -67,7 +67,9 @@
                 <HeroTitle scrollWords={scrollWords} cycleIndex={index} display={display}/>
                 <p class="rounded-md text-slate-700 text-2xl inline-block mx-auto mb-10 w-2/3">
                     “English Only Policy”の環境だからこそできるスピーキング・リスニングに焦点を当てたレッスン内容になっています。英会話スクールに行く時間が確保できなくてもキャンパス内留学だからこそ空いている時間でレッスンに取り組むことができ、大学の授業や部活、バイトなどとも両立することができます！</p>
-                    <CTA text="今すぐ受講"/>
+                    <div class="mx-auto">
+                        <CTA text="今すぐ受講"/>
+                    </div>
                 </div>
             </div>
             <HeroImageCarousel cycleIndex={index} imgPaths={imgData} display={display}/>
