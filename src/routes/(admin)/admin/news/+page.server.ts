@@ -1,47 +1,36 @@
-import { invalid, redirect } from "@sveltejs/kit";
-import type { Action, Actions, PageServerLoad } from "./$types";
-import bcrypt from "bcrypt";
+import { fail, redirect } from '@sveltejs/kit';
+import type { Action, Actions } from './$types';
 
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from '@prisma/client';
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
 
-export const load: PageServerLoad = async () =>{
+//export const load: PageServerLoad = async () => {};
 
-}
+const post: Action = async ({ request }) => {
+	const pageData = await request.formData();
+	const title = pageData.get('title');
+	const tags = pageData.get('tags');
+	const content = pageData.get('content');
+	const showCreated = true;
+	const showUpdated = true;
+	const visible = true;
 
-const post: Action = async({request}) => {
+	if (!title || !tags || !content) {
+		return fail(400, { incomplete: true });
+	}
 
-    console.log("Doing stuff")
+	const data = {
+		title,
+		tags,
+		content,
+		visible,
+		showCreated,
+		showUpdated,
+		author: { connect: { email: 'justin.smith@achievegoal.jp' } }
+	};
 
-    const pageData = await request.formData()
-    console.log(pageData)
-    const title = pageData.get('title');
-    const tags = pageData.get('tags');
-    const content = pageData.get('content')
-    const showCreated = true
-    const showUpdated = true
-    const visible = true
+	await prisma.article.create({ data });
+};
 
-    if(!title || !tags || !content){
-        console.log("oops")
-        console.log(Boolean(title), Boolean(tag), Boolean(content))
-        return invalid(400, {incomplete:true})
-    }
-
-    let data ={
-            title,
-            tags,
-            content,
-            visible,
-            showCreated,
-            showUpdated,
-            author : {connect: {email: 'justin.smith@achievegoal.jp'}}
-    }
-
-    console.log(data)
-    let serverStatus = await prisma.article.create({data})
-    console.log(serverStatus) 
-}
-
-export const actions: Actions = {post}
+export const actions: Actions = { post };

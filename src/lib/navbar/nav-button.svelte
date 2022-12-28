@@ -1,6 +1,6 @@
 <script lang="ts">
     import {buildTween} from "$lib/tweens/buildTween.js"
-    import type {NavbarData} from "./NavTypes"
+    import type {NavbarData} from "./NavTypes.svelte"
 
     export let english: string;
     export let japanese: string;
@@ -15,8 +15,6 @@
     let page = navbarData.page
 
     $: textShift.set(tweenColors[navbarData.index])
-
-    $:console.log(hovered)
 
 </script>
 

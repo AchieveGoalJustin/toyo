@@ -13,7 +13,6 @@
     function unselect(){
        tag.toggleIsSelected() 
        toUpdate = true
-       console.log(tag)
     }
 </script>
 

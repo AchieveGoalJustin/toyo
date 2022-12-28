@@ -39,7 +39,6 @@
 
     let interval: any
     $: interval = resetInterval(interval)
-    $: console.log(display)
 
 </script>
 
