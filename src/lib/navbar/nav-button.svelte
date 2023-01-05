@@ -10,11 +10,12 @@
 
 
     let hovered: boolean = false
-    let tweenColors = ["rgb(0,0,0)","rgb(255,255,255)"]
-    let textShift = buildTween(tweenColors, 50)
+    let tweenToWhite = ["rgb(0,0,0)","rgb(255,255,255)"]
+    let tweenToRed = ["rgb(255,255,255)", "rgb(190,18,60"]
+    let textShift = buildTween(tweenToWhite, 50)
     let page = navbarData.page
 
-    $: textShift.set(tweenColors[navbarData.index])
+    $: textShift.set(tweenToWhite[navbarData.index])
 
 </script>
 

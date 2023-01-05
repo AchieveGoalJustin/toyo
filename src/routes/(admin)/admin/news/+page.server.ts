@@ -2,6 +2,7 @@ import { fail, redirect } from '@sveltejs/kit';
 import type { Action, Actions } from './$types';
 
 import { PrismaClient } from '@prisma/client';
+import { findParentNodeClosestToPos } from '@tiptap/core';
 
 const prisma = new PrismaClient();
 
@@ -34,3 +35,4 @@ const post: Action = async ({ request }) => {
 };
 
 export const actions: Actions = { post };
+

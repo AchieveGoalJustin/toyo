@@ -1,22 +1,20 @@
 <script lang="ts">
-	import "../../app.css";
-	import Nav from "$lib/navbar/nav.svelte";
-	import Social from "$lib/social-components/social.svelte";
-
-	import type {LayoutData} from './$types'
+	import '../../app.css';
+	import Nav from '$lib/navbar/nav.svelte';
+	import Social from '$lib/social-components/social.svelte';
+	import Footer from '$lib/footer/Footer.svelte';
 </script>
-
 
 <Nav />
 <main class="flex flex-col justify-center pb-5 w-2xl bg-white mx-auto shadow-md">
-		<slot/>
-		<Social/>
+	<slot />
+	<Social />
 </main>
 <footer class="w-full flex flex-col justify-center content-center">
-	<div class="h-[300px] bg-rose-700">
-
+	<div class="min-h-[300px] bg-rose-700">
+		<Footer />
 	</div>
 	<div class="bg-slate-700 text-white w-full">
-		<p class="mx-auto w-fit py-2">Copyright 2022 Achieve Goal</p>
+		<p class="mx-auto w-fit py-2">Copyright 2023 Achieve Goal</p>
 	</div>
 </footer>
